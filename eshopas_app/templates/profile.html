@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load myfilters %}
+
+<link href="{% static 'css/styles.css' %}" rel="stylesheet">
+
+{% block content %}
+  <div class="content-section">
+    <div class="media">
+      <img class="rounded-circle account-img" src="{{ user.profile.img.url }}">
+      <div class="media-body">
+        <h2 class="account-heading">{{ user.username }}</h2>
+        <p class="text-secondary">{{ user.email }}</p>
+      </div>
+    </div>
+    <div><a class="btn btn-primary" href="{% url 'order_list' %}">My Orders</a></div>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="{{ user_form.email.id_for_label }}">Email:</label>
+        {{ user_form.email }}
+      </div>
+      <div class="form-group">
+        <label for="{{ user_form.first_name.id_for_label }}">First name:</label>
+        {{ user_form.first_name }}
+      </div>
+      <div class="form-group">
+        <label for="{{ user_form.last_name.id_for_label }}">Last name:</label>
+        {{ user_form.last_name }}
+      </div>
+      <div class="form-group">
+        <label for="{{ profile_form.home_address.id_for_label }}">Home address:</label>
+        {{ profile_form.home_address }}
+      </div>
+      <div class="form-group">
+        <label for="{{ profile_form.city_town.id_for_label }}">City/Town:</label>
+        {{ profile_form.city_town }}
+      </div>
+      <div class="form-group">
+        <label for="{{ profile_form.img.id_for_label }}">Upload Image:</label>
+        {{ profile_form.img }}
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Update</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

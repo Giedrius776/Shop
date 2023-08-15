@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+
+{% block title %}My Orders{% endblock %}
+
+{% block content %}
+    <h1>My Orders</h1>
+    {% if orders %}
+    <ul>
+        {% for order in orders %}
+            <li>
+                Order ID: {{ order.id }}
+                Customer: {{ order.customer.user.username }}
+                Status: {{ order.status.status_type }} {# Display the status_type attribute from the related Status model #}
+                <a href="{% url 'order_detail' order_id=order.id %}">View Details</a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>You have no orders yet.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Categories</h1>
+    <ul>
+        {% for category in categories %}
+            <li>
+                <h2><a href="{% url 'category_detail' category.pk %}">{{ category.name }}</a></h2>
+                <p>{{ category.description }}</p>
+            </li>
+        {% empty %}
+            <li>No categories available.</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Back to Main Page button -->
+    <a href="{% url 'index' %}" class="btn btn-primary">Back to Main Page</a>
+{% endblock %}

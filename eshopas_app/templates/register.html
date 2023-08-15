@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load myfilters %}
+<link href="{% static 'css/styles.css' %}" rel="stylesheet">
+
+{% block content %}
+    <div class="container register">
+        <h3>Registration</h3><br/>
+        <form method="post" action="{% url 'register' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+        <p>If you registered earlier, <a href="/login"><strong>login.</strong></a></p>
+    </div>
+{% endblock %}

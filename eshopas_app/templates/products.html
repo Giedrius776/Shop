@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{{ category.name }}</h2>
+
+    {% for product in products %}
+        <!-- display product details here -->
+    {% endfor %}
+
+    {% if not products %}
+        <p>No products available in this category.</p>
+    {% endif %}
+{% endblock %}

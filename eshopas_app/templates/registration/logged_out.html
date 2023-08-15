@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load myfilters %}
+<link href="{% static 'css/styles.css' %}" rel="stylesheet">
+
+{% block content %}
+  <p>Loggout was succsess!</p>
+  <a href="{% url 'login'%}">Login again.</a>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load myfilters %}
+
+{% block title %}Order Success{% endblock %}
+
+{% block content %}
+<link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <header>
+        <!-- Header content -->
+    </header>
+
+    <div class="container">
+        <h2>Order Confirmation</h2>
+
+        <!-- Display order details and confirmation message -->
+        <div class="order-details">
+            <p>Order ID: {{ order.id }}</p>  <!-- Use order.id to display the Order ID -->
+            <p>Customer: {{ order.customer }}</p>
+            <!-- Ensure order.status is used with get_status_type_display method -->
+            Status: {{ order.get_status_type_display }}
+
+        </div>
+
+        <!-- Display confirmation message -->
+        <p>Thank you for your order. It will be processed soon.</p>
+
+        <!-- Add other content as needed -->
+
+    </div>
+
+        <div class="container">
+            <h2>Order Successfully Placed</h2>
+            <p>Your order with Order ID: {{ order_id }} has been placed successfully.</p>
+            <p>Thank you for shopping with us!</p>
+
+            <a href="{% url 'billing_address' %}" class="btn btn-primary">Continue to Payment</a>
+        </div>
+
+{% endblock %}

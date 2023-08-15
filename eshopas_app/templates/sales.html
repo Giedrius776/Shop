@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h2>All Sales and Discounts</h2>
+    {% for sale in sales %}
+        <h3>{{ sale.name }}</h3>
+        <p>Discount: {{ sale.discount_percentage }}%</p>
+        <p>Start Date: {{ sale.start_date }}</p>
+        <p>End Date: {{ sale.end_date }}</p>
+        <h4>Products on Sale:</h4>
+        <ul>
+            {% for product in sale.product_set.all %}
+                <li>{{ product.name }} - Price: ${{ product.price }} - Discounted Price: ${{ product.discounted_price }}</li>
+            {% endfor %}
+        </ul>
+        <hr>
+    {% endfor %}
+{% endblock %}

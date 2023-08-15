@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+    <h2>Checkout</h2>
+    <p>Total: ${{ total_cart_value }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="card_number">Card Number:</label>
+        <input type="text" id="card_number" name="card_number" required>
+        <small class="form-text text-muted">Format: *415458745868526</small>
+        {% if form.card_number.errors %}
+            <div class="alert alert-danger">
+                {{ form.card_number.errors }}
+            </div>
+        {% endif %}
+
+        <label for="expiry_date">Expiry Date:</label>
+        <input type="text" id="expiry_date" name="expiry_date" required>
+        <small class="form-text text-muted">Format: MM/YY</small>
+        {% if form.expiry_date.errors %}
+            <div class="alert alert-danger">
+                {{ form.expiry_date.errors }}
+            </div>
+        {% endif %}
+
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" required>
+        <small class="form-text text-muted">Format: 123 (3 digits)</small>
+        {% if form.cvv.errors %}
+            <div class="alert alert-danger">
+                {{ form.cvv.errors }}
+            </div>
+        {% endif %}
+
+        <button type="submit">Proceed to Payment</button>
+    </form>
+{% endblock %}

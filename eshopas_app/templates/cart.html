@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load myfilters %}
+<link href="{% static 'css/styles.css' %}" rel="stylesheet">
+
+{% block content %}
+    <h2>Your Cart</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart.cartitem_set.all %}
+                <tr>
+                    <td>{{ item.product.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>${{ item.product.price }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if cart.cartitem_set.all %}
+        <p>Total Cart Value: ${{ cart.get_cart_total }}</p>
+        <a href="{% url 'checkout' %}" class="btn btn-primary">Proceed to Checkout</a>
+    {% else %}
+        <p>Your cart is empty.</p>
+    {% endif %}
+{% endblock %}

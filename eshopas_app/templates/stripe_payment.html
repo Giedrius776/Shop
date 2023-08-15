@@ -1,0 +1,22 @@
+<!-- stripe_payment.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Payment Information</h2>
+
+  <form method="post" id="payment-form">
+    {% csrf_token %}
+    <!-- Stripe Payment Form -->
+    <!-- Add necessary fields for credit card information -->
+    <!-- Replace the placeholders with actual input fields for card number, expiration date, CVC, etc. -->
+
+    <button type="submit">Pay Now</button>
+  </form>
+
+  <!-- Include Stripe JS library -->
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    // Stripe JS code will be placed here
+  </script>
+{% endblock %}
