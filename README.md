@@ -52,6 +52,6 @@ My Contacts: giedriuspranevicius@inbox.lt
 
 ![Category](https://github.com/GiedriusPR/ManoEshopas/blob/main/thelook/category.png)
 
-![Profile](https://github.com/GiedriusPR/ManoEshopas/blob/main/thelook/profile.png)
+![Profile](https://github.com/Giedrius776/Shop/blob/master/thelook/profilenew.png)
 
-# GIEDPRshop
+# GIEDPReshop Project
