@@ -46,7 +46,7 @@ My Contacts: giedriuspranevicius@inbox.lt
 
 ![Homepage](https://github.com/GiedriusPR/ManoEshopas/blob/main/thelook/home.png)
 
-![ProductDetail](https://github.com/GiedriusPR/ManoEshopas/blob/main/thelook/productdetail.png)
+![ProductDetail](https://github.com/Giedrius776/Shop/blob/master/thelook/productdetail1.png)
 
 ![Checkout](https://github.com/GiedriusPR/ManoEshopas/blob/main/thelook/checkout.png)
 
